@@ -1,0 +1,368 @@
+/* General Styles */
+body,html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f3f7f4;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(to right, #0073e6, #00bfa5);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav {
+    position: relative;
+}
+
+.menu-icons {
+    display: flex;
+}
+
+.menu-icon,
+.close-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon .bar,
+.close-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.close-icon .bar:first-child {
+    transform: rotate(45deg) translate(2px, 1px);
+}
+
+.close-icon .bar:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #dbd8bc;
+}
+
+/* Social Media Icons */
+.social-media-icons {
+    margin-top: 10px;
+}
+
+.social-media-icons a {
+    margin: 0 10px;
+}
+
+.social-media-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.social-media-icons img:hover {
+    transform: scale(1.5);
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 50px 20px;
+    background-color: white;
+    /* text-align: center; */
+    animation: fadeIn 2s ease-in;
+}
+
+.header-content{
+
+    margin: 0;
+    padding: 0;
+}
+/* Profile Picture */
+.profile-pic {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Typing Animation */
+.typing-animation {
+    border-right: 2px solid #000;
+    white-space: nowrap;
+    overflow: hidden;
+    color: hsl(192, 94%, 51%);
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: inline-block;
+    animation: typing 5s steps(20) infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0ch;
+    }
+
+    50% {
+        width: 20ch;
+    }
+    100%{
+        width: 0ch;
+    }
+}
+/* 
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black }
+} */
+.welcome-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 20px;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.projects-section h2 {
+    margin-bottom: 40px;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project-card {
+    background-color: #0073e6;
+    color: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card a {
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+.project-card img{
+    max-width: 100%;
+    height: auto;
+}
+/* Skills Section */
+.skills-section {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.skills-section h2 {
+    margin-bottom: 40px;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill {
+    background-color: #00bfa5;
+    color: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+.contact-section img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.contact-section img:hover {
+    transform: scale(1.2);
+}
+.contact-section h2 {
+    margin-bottom: 40px;
+}
+
+.contact-section p {
+    font-size: 18px;
+}
+
+/* Feedback Section */
+.feedback-section {
+    padding: 50px 20px;
+    background-color: #00bfa5;
+    color: white;
+    text-align: center;
+}
+
+.feedback-section h2 {
+    margin-bottom: 40px;
+}
+
+.feedback-section form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.feedback-section input,
+.feedback-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.feedback-section button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.feedback-section button:hover {
+    background-color: #005bb5;
+}
+
+/* Footer */
+footer {
+    margin-top: -5px;
+    padding: 20px;
+    text-align: center;
+    background-color: #0c0c0c;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root{
+        font-size: 14px;
+    }
+    /* Profile Picture */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .projects-container,
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
