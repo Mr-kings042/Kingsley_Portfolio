@@ -106,15 +106,21 @@ nav ul li a:hover {
 .welcome-section {
     padding: 50px 20px;
     background-color: white;
-    /* text-align: center; */
     animation: fadeIn 2s ease-in;
-}
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} 
 
 .header-content{
-
-    margin: 0;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
     padding: 0;
 }
+
 /* Profile Picture */
 .profile-pic {
     width: 400px;
@@ -132,7 +138,7 @@ nav ul li a:hover {
     font-weight: 700;
     font-size: 1.5rem;
     display: inline-block;
-    animation: typing 5s steps(20) infinite;
+    animation: typing 8s steps(20) infinite;
 }
 
 @keyframes typing {
@@ -155,11 +161,16 @@ nav ul li a:hover {
 
 .welcome-section p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 300;
+    font-style: italic;
     color: #0073e6 ;
   word-spacing: 3px;
 }
-
+.welcome-section span{
+    font-size: 36px;
+    margin-bottom: -11.2px;
+    color: #0073e6 ;
+}
 /* Projects Section */
 .projects-section {
     padding: 50px 20px;
