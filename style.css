@@ -128,7 +128,7 @@ nav ul li a:hover {
     border-right: 2px solid #000;
     white-space: nowrap;
     overflow: hidden;
-    color: hsl(192, 94%, 51%);
+    color: hsl(240, 4%, 9%);
     font-weight: 700;
     font-size: 1.5rem;
     display: inline-block;
@@ -147,11 +147,7 @@ nav ul li a:hover {
         width: 0ch;
     }
 }
-/* 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: black }
-} */
+
 .welcome-section h1 {
     font-size: 36px;
     margin-bottom: 10px;
@@ -159,6 +155,9 @@ nav ul li a:hover {
 
 .welcome-section p {
     font-size: 20px;
+    font-weight: 600;
+    color: #0073e6 ;
+  word-spacing: 3px;
 }
 
 /* Projects Section */
