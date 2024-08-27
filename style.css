@@ -131,7 +131,7 @@ nav ul li a:hover {
 
 /* Typing Animation */
 .typing-animation {
-    border-right: 2px solid #000;
+    border-right: 3px solid #0073e6 ;
     white-space: nowrap;
     overflow: hidden;
     color: hsl(240, 4%, 9%);
@@ -194,12 +194,12 @@ nav ul li a:hover {
     padding: 20px;
     margin: 15px;
     border-radius: 10px;
-    width: 300px;
+    width: 280px;
     transition: transform 0.3s;
 }
 
 .project-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .project-card a {
