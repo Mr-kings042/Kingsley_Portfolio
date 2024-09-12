@@ -45,29 +45,19 @@ document.getElementById('closeIcon').addEventListener('click', function() {
     menuIcon.style.display = 'block';
 });
 
-// Handle feedback form submission
+
+// feeback section
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    emailjs.send("service_w4f7wqm", "template_qvwv2gj", {
-        name: name,
-        email: email,
-        message: message
-    })
-    .then(response => {
-        document.getElementById('statusMessage').textContent = 'Feedback sent successfully!';
-    })
-    .catch(error => {
-        document.getElementById('statusMessage').textContent = 'Failed to send feedback. Please try again.';
-    });
-    // Here you would typically send the data to your server or email service
-    // For now, we'll just display a success message
-
-    document.getElementById('statusMessage').innerText = 'Thank you for your feedback, ' + name + '!';
-
-    // Clear form fields
-    document.getElementById('feedbackForm').reset();
+    event.preventDefault(); // Prevent the form from submitting immediately
+    var submitButton = this.querySelector('button[type="submit"]');
+    
+    // Disable the button after it's clicked
+    submitButton.disabled = true;
+     // Disable all input and textarea fields
+     var inputs = this.querySelectorAll('input, textarea');
+     inputs.forEach(function(input) {
+         input.disabled = true;
+     });
+    // Show a status message after the form is submitted
+    document.getElementById('statusMessage').textContent = 'Feedback submitted. Thank you for your Time';
 });

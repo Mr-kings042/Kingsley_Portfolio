@@ -15,6 +15,7 @@ header {
     padding: 20px 0;
     text-align: center;
     position: relative;
+    width: auto;
     z-index: 1;
 }
 
@@ -136,8 +137,8 @@ nav ul li a:hover {
     border-radius: 40%;
     margin-bottom: 10px;
    margin-right: 50px;
-   max-width: 40%; /* Adjust the size of the image */
-   height: auto;   /* Keep the aspect ratio of the image */
+   max-width: 40%; 
+   height: auto;   
    margin-right: 20px;
    cursor: pointer;
 }
@@ -267,6 +268,7 @@ nav ul li a:hover {
     padding: 50px 20px;
     background-color: white;
     text-align: center;
+    gap: 1rem;
 }
 .contact-section img {
     width: 24px;
@@ -283,6 +285,7 @@ nav ul li a:hover {
 
 .contact-section p {
     font-size: 18px;
+
 }
 
 /* Feedback Section */
@@ -310,6 +313,7 @@ nav ul li a:hover {
     border: none;
     outline: none;
     border-radius: 5px;
+  
 }
 
 .feedback-section button {
@@ -324,7 +328,16 @@ nav ul li a:hover {
 .feedback-section button:hover {
     background-color: #005bb5;
 }
-
+.feedback-section button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.feedback-section input:disabled,
+.feedback-section textarea:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    border-color: #ccc;
+}
 /* Footer */
 footer {
     margin-top: -5px;
@@ -356,27 +369,41 @@ footer {
 }
 
 /* Responsive Design */
-@media  screen and (max-width: 768px) {
+@media  (max-width: 768px) {
     :root{
         font-size: 14px;
     }
-    
+    body{
+        overflow-x: hidden;
+    }
     /* Profile Picture */
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: auto;
+    height: auto;
+    border-radius: 30%;
+    object-fit: contain;
     margin-bottom: 20px;
     margin-bottom: 20px;
 }
-.welcome-section {
-    flex-direction: column; /* Stacks the image and text on top of each other */
+.header-content {
+    flex-direction: column; 
     text-align: center;
+    align-items: center;
+    justify-content: center;
+   
 }
 
-.text p {
-    max-width: 100%; /* Ensures the text takes the full width */
+.text{
+    flex: 1;
+    flex-wrap: wrap;
 }
+.text p {
+    
+    max-width: 90%;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+}
+/* Navbar section */
     nav ul {
         display: none;
         flex-direction: column;
