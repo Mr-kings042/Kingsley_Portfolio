@@ -51,6 +51,12 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     event.preventDefault(); // Prevent the form from submitting immediately
     var submitButton = this.querySelector('button[type="submit"]');
     
+    emailjs.sendForm('service_w4f7wqm', 'template_0ugreux', this)
+    .then(function() {
+        document.getElementById('statusMessage').textContent = 'Feedback submitted. Thank you for your time!';
+    }, function(error) {
+        document.getElementById('statusMessage').textContent = 'Failed to send feedback. Please try again.';
+    });
     // Disable the button after it's clicked
     submitButton.disabled = true;
      // Disable all input and textarea fields

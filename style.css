@@ -211,8 +211,7 @@ nav ul li a:hover {
     padding: 20px;
     margin: 15px;
     border-radius: 10px;
-    width: 280px;
-    /* flex: 1 1 20%; */
+    flex: 1 1 20%;
     transition: transform 0.3s;
 }
 
@@ -301,7 +300,7 @@ nav ul li a:hover {
 }
 
 .feedback-section form {
-    max-width: 500px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -371,10 +370,11 @@ footer {
 /* Responsive Design */
 @media  (max-width: 768px) {
     :root{
-        font-size: 14px;
+        font-size: 16px;
     }
     body{
         overflow-x: hidden;
+        text-align: center;
     }
     /* Profile Picture */
 .profile-pic {
@@ -424,6 +424,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+    
 
     nav ul li {
         margin: 10px 0;
