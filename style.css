@@ -6,6 +6,7 @@ body,html {
     padding: 0;
     box-sizing: border-box;
     background-color: #f3f7f4;
+    overflow-x: hidden;
 }
 
 /* Header Styles */
@@ -14,8 +15,9 @@ header {
     color: white;
     padding: 20px 0;
     text-align: center;
-    position: relative;
-    width: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1;
 }
 
@@ -123,7 +125,7 @@ nav ul li a:hover {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
   
 }
@@ -132,12 +134,9 @@ nav ul li a:hover {
 }
 /* Profile Picture */
 .profile-pic {
-    width: 400px;
-    height: 400px;
-    border-radius: 40%;
-    margin-bottom: 10px;
+   
+    margin: 60px;
    margin-right: 50px;
-   max-width: 40%; 
    height: auto;   
    margin-right: 20px;
    cursor: pointer;
@@ -369,28 +368,27 @@ footer {
 
 /* Responsive Design */
 @media  (max-width: 768px) {
-    :root{
-        font-size: 16px;
-    }
     body{
         overflow-x: hidden;
         text-align: center;
+        font-size: 10px;
     }
     /* Profile Picture */
 .profile-pic {
-    width: auto;
-    height: auto;
-    border-radius: 30%;
     object-fit: contain;
-    margin-bottom: 20px;
-    margin-bottom: 20px;
+    margin: 40px 0 10px 0;
+  
+}
+.welcome-section{
+    flex-direction: column-reverse;
 }
 .header-content {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column-reverse; 
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
    
 }
 

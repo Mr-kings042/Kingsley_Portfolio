@@ -67,3 +67,33 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     // Show a status message after the form is submitted
     document.getElementById('statusMessage').textContent = 'Feedback submitted. Thank you for your Time';
 });
+
+// to check out later----
+
+const form = document.getElementById('contactForm');
+const statusMessage = document.getElementById('statusMessage');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;   
+
+  const message = document.getElementById('message').value;   
+
+
+  // Replace 'your_email@example.com' with your actual email address
+  const recipientEmail = 'your_email@example.com';
+
+  // Create a new email using JavaScript's built-in email functionality
+  const mailtoLink = `mailto:${recipientEmail}?subject=Contact Form Submission&body=Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+  // Open the email client with the pre-filled message
+  window.location.href = mailtoLink;
+
+  // Display a success message
+  statusMessage.textContent = 'Feedback sent successfully!';
+
+  // Clear form fields
+  form.reset();
+});
