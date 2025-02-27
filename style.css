@@ -129,9 +129,7 @@ nav ul li a:hover {
     margin: 0 auto;
   
 }
-.text{
-    flex: 1;
-}
+
 /* Profile Picture */
 .profile-pic {
    
@@ -150,7 +148,7 @@ nav ul li a:hover {
     overflow: hidden;
     color: hsl(240, 69%, 83%);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 0.7rem;
  text-align: center;
     display: block;
     animation: typing 8s steps(20) infinite;
@@ -176,10 +174,10 @@ nav ul li a:hover {
 
 .welcome-section p {
     text-align: center;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 300;
     font-style: italic;
-    color: #2e73b4 ;
+    /* color: #2e73b4 ; */
   word-spacing: 3px;
 }
 .welcome-section span{
@@ -371,7 +369,7 @@ footer {
     body{
         overflow-x: hidden;
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
     }
     /* Profile Picture */
 .profile-pic {
@@ -379,8 +377,19 @@ footer {
     margin: 40px 0 10px 0;
   
 }
+#welcome-writeup{
+    font-size: 1.5rem
+}
 .welcome-section{
     flex-direction: column-reverse;
+}
+.welcome-section p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+padding-top: 5px;
+  word-spacing: 3px;
 }
 .header-content {
     display: flex;
