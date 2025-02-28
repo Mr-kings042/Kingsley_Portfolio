@@ -25,75 +25,103 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Toggle menu for mobile view
-document.getElementById('menuIcon').addEventListener('click', function() {
-    const navLinks = document.getElementById('navLinks');
-    const closeIcon = document.getElementById('closeIcon');
-    const menuIcon = document.getElementById('menuIcon');
+// 
 
-    navLinks.classList.toggle('active');
-    menuIcon.style.display = 'none';
-    closeIcon.style.display = 'block';
+// Toggle Menu
+const menuIcon = document.getElementById("menuIcon");
+const closeIcon = document.getElementById("closeIcon");
+const navLinks = document.getElementById("navLinks");
+const NavLinks = document.querySelectorAll('#navLinks li a');
+
+menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuIcon.style.display = "none";
+    closeIcon.style.display = "block";
 });
 
-document.getElementById('closeIcon').addEventListener('click', function() {
-    const navLinks = document.getElementById('navLinks');
-    const closeIcon = document.getElementById('closeIcon');
-    const menuIcon = document.getElementById('menuIcon');
+closeIcon.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+});
+const closeNavMenu = () => {
+    navLinks.classList.remove("active");
+    menuIcon.style.display = "block";
+    closeIcon.style.display = "none";
+  };
+NavLinks.forEach((links) => {
+    links.addEventListener("click", closeNavMenu);
+})
+// Back to Top Button
+const backToTop = document.getElementById("backToTop");
 
-    navLinks.classList.toggle('active');
-    closeIcon.style.display = 'none';
-    menuIcon.style.display = 'block';
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
 });
 
+backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
-// feeback section
-document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting immediately
-    var submitButton = this.querySelector('button[type="submit"]');
+// Dark/Light Mode Toggle
+// Theme Toggle Logic
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = document.getElementById('themeIcon');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
     
-    emailjs.sendForm('service_w4f7wqm', 'template_0ugreux', this)
-    .then(function() {
-        document.getElementById('statusMessage').textContent = 'Feedback submitted. Thank you for your time!';
-    }, function(error) {
-        document.getElementById('statusMessage').textContent = 'Failed to send feedback. Please try again.';
+    // Toggle between moon and sun icons
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
+
+// Form Submission
+const feedbackForm = document.getElementById("feedbackForm");
+const statusMessage = document.getElementById("statusMessage");
+
+feedbackForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Send feedback to your email (requires backend setup)
+    fetch("https://your-backend-endpoint.com/send-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        statusMessage.textContent = "Feedback sent successfully!";
+        feedbackForm.reset();
+    })
+    .catch(error => {
+        statusMessage.textContent = "Failed to send feedback. Please try again.";
     });
-    // Disable the button after it's clicked
-    submitButton.disabled = true;
-     // Disable all input and textarea fields
-     var inputs = this.querySelectorAll('input, textarea');
-     inputs.forEach(function(input) {
-         input.disabled = true;
-     });
-    // Show a status message after the form is submitted
-    document.getElementById('statusMessage').textContent = 'Feedback submitted. Thank you for your Time';
 });
 
-// to check out later----
+// Scroll Animations
+const fadeElements = document.querySelectorAll(".fade-in");
 
-const form = document.getElementById('contactForm');
-const statusMessage = document.getElementById('statusMessage');
+const checkFade = () => {
+    fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < window.innerHeight - 100) {
+            element.classList.add("visible");
+        }
+    });
+};
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;   
-
-  const message = document.getElementById('message').value;   
-
-
-  // Replace 'your_email@example.com' with your actual email address
-  const recipientEmail = 'your_email@example.com';
-
-  // Create a new email using JavaScript's built-in email functionality
-  const mailtoLink = `mailto:${recipientEmail}?subject=Contact Form Submission&body=Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
-
-  // Open the email client with the pre-filled message
-  window.location.href = mailtoLink;
-
-  // Display a success message
-  statusMessage.textContent = 'Feedback sent successfully!';
-
-  // Clear form fields
-  form.reset();
-});
+window.addEventListener("scroll", checkFade);
+checkFade(); // Initial check
