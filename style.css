@@ -205,6 +205,7 @@ nav ul li a {
         padding-left: 10px;
         white-space: normal;
         border: none; 
+        font-size: 1.5rem;
         animation: none; 
     }
     #welcome-writeup {
