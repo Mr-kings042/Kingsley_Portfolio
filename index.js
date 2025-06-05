@@ -65,28 +65,54 @@ backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
- const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form elements
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        
+        // Prepare form data for Netlify
+        const formData = new FormData(this);
+        
+        // Submit to Netlify
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (response.ok) {
+                // Success state
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
                 
-                // Simulate form submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
+                // Reset form after success
+                contactForm.reset();
                 
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-                
-                // Simulate network request
+                // Reset button after delay
                 setTimeout(() => {
-                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
-                    
-                    // Reset form
-                    setTimeout(() => {
-                        contactForm.reset();
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = originalText;
-                    }, 2000);
-                }, 1500);
-            });
-        }
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }, 2000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            // Error state
+            submitBtn.innerHTML = '<i class="fas fa-times mr-2"></i>Error!';
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 2000);
+            
+            console.error('Form submission error:', error);
+        });
+    });
+}
