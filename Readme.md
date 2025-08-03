@@ -46,7 +46,6 @@ You can view a live demo [here](https://mr-kings042.github.io/Kingsley_Portfolio
 index.html
 index.js
 style.css
-test.html
 .vscode/
   settings.json
 images/
@@ -62,12 +61,20 @@ images/
 - `test.html` - Alternate/test version of the portfolio
 - `images/` - Project and profile images
 
+## Technologies Used
+
+- HTML5
+- Tailwind CSS
+- Font Awesome
+- JavaScript (ES6)
+- [Netlify Forms](https://docs.netlify.com/forms/setup/) (for contact form)
+
 ## Customization
 
 - **Profile Info:** Update your name, bio, and contact details in `index.html`.
 - **Projects:** Add or edit project cards in the Projects section.
 - **Skills:** Modify the Skills section to reflect your expertise.
-- **Contact Form:** The form submits to a Google Apps Script endpoint. Update the `action` attribute if you want to use a different backend.
+- **Contact Form:** The form submits via Netlify. Update the `action` attribute if you want to use a different backend.
 
 ## Deployment
 
